@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chennai Super Kings - Official Fan Zone</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0wLPhx/z7Y13x3/r5C1E7z0mG0u7D5U/sF+eFwJ3oM5/r/t3B6lQ0O0YQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-100 text-gray-800;
+        }
+        /* Custom styles for CSK colors */
+        .csk-yellow { background-color: #FFDA2B; }
+        .csk-blue { background-color: #0F538C; }
+        .text-csk-yellow { color: #FFDA2B; }
+        .text-csk-blue { color: #0F538C; }
+        .border-csk-yellow { border-color: #FFDA2B; }
+        .border-csk-blue { border-color: #0F538C; }
+
+        .section-title {
+            @apply text-4xl md:text-5xl font-extrabold text-gray-900 mb-8 relative pb-4;
+        }
+        .section-title::after {
+            content: '';
+            @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 csk-blue rounded-full;
+        }
+        .btn-primary {
+            @apply bg-csk-blue text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-opacity-90 focus:outline-none focus:ring-4 focus:ring-csk-blue focus:ring-opacity-50;
+        }
+        .btn-secondary {
+            @apply bg-transparent border-2 border-csk-blue text-csk-blue px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-csk-blue hover:text-white focus:outline-none focus:ring-4 focus:ring-csk-blue focus:ring-opacity-50;
+        }
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFDA2B; /* CSK Yellow */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FACC15; /* A darker yellow */
+        }
+        /* Keyframe animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+
+        /* Custom glow effect for the hero section */
+        .hero-glow {
+            box-shadow: 0 0 40px rgba(255, 218, 43, 0.7); /* Yellow glow */
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- Header & Navigation -->
+    <header class="bg-csk-blue shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Team Logo -->
+            <a href="#hero" class="flex items-center space-x-2 rounded-md p-1 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">
+                <!-- Simple Lion Emoji or SVG for placeholder -->
+                <span class="text-4xl">🦁</span>
+                <span class="text-3xl font-extrabold text-csk-yellow hover:text-white transition-colors duration-300">CSK Fan Zone</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white hover:text-csk-yellow focus:outline-none focus:ring-2 focus:ring-csk-yellow rounded-md p-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#about" class="nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 rounded-md p-2 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">About</a></li>
+                <li><a href="#schedule" class="nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 rounded-md p-2 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">Schedule</a></li>
+                <li><a href="#players" class="nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 rounded-md p-2 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">Players</a></li>
+                <li><a href="#stats" class="nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 rounded-md p-2 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">Stats</a></li>
+                <li><a href="#news" class="nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 rounded-md p-2 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">News</a></li>
+                <li><a href="#fan-zone" class="nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 rounded-md p-2 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">Fan Zone</a></li>
+                <li><a href="#contact" class="nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 rounded-md p-2 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Navigation Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-csk-blue shadow-md py-2">
+            <ul class="flex flex-col items-center space-y-4">
+                <li><a href="#about" class="mobile-nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 w-full text-center block py-2 px-4 rounded-md focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">About</a></li>
+                <li><a href="#schedule" class="mobile-nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 w-full text-center block py-2 px-4 rounded-md focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">Schedule</a></li>
+                <li><a href="#players" class="mobile-nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 w-full text-center block py-2 px-4 rounded-md focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">Players</a></li>
+                <li><a href="#stats" class="mobile-nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 w-full text-center block py-2 px-4 rounded-md focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">Stats</a></li>
+                <li><a href="#news" class="mobile-nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 w-full text-center block py-2 px-4 rounded-md focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">News</a></li>
+                <li><a href="#fan-zone" class="mobile-nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 w-full text-center block py-2 px-4 rounded-md focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">Fan Zone</a></li>
+                <li><a href="#contact" class="mobile-nav-link text-lg font-medium text-white hover:text-csk-yellow transition-colors duration-300 w-full text-center block py-2 px-4 rounded-md focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="csk-yellow text-csk-blue py-20 md:py-32 text-center rounded-b-3xl shadow-lg hero-glow overflow-hidden relative">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-6xl md:text-7xl font-extrabold mb-4 animate-fade-in-down">Chennai Super Kings</h1>
+                    <p class="text-3xl md:text-4xl font-light mb-8 animate-fade-in-up">🦁 Whistle Podu! 💛</p>
+                    <p class="text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto animate-fade-in">
+                        Welcome to the ultimate fan zone for the Yellow Army! Get all the latest updates, schedules, player info, and much more for your favorite IPL team.
+                    </p>
+                    <div class="flex justify-center space-x-4 animate-fade-in-up">
+                        <a href="#schedule" class="btn-primary">
+                            <i class="fas fa-calendar-alt mr-2"></i> Upcoming Matches
+                        </a>
+                        <a href="#players" class="btn-secondary">
+                            <i class="fas fa-users mr-2"></i> Meet the Squad
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Background element for visual flair (optional) -->
+            <div class="absolute inset-0 opacity-10" style="background-image: url('https://placehold.co/1200x800/FFDA2B/0F538C?text=CSK+Background'); background-size: cover; background-position: center; filter: blur(5px);"></div>
+        </section>
+
+        <!-- About Team Section -->
+        <section id="about" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-title">About the Yellow Army</h2>
+                <div class="max-w-3xl mx-auto mt-12 text-lg text-gray-700 leading-relaxed">
+                    <p class="mb-6">
+                        The Chennai Super Kings (CSK) are a franchise cricket team based in Chennai, Tamil Nadu, India, which plays in the Indian Premier League (IPL). Founded in 2008, the team plays its home matches at the M. A. Chidambaram Stadium in Chennai. The Super Kings have won the IPL title a record **five times** (2010, 2011, 2018, 2021, 2023), and the Champions League Twenty20 twice (2010, 2014).
+                    </p>
+                    <p class="mb-6">
+                        Led by the legendary **Mahendra Singh Dhoni**, CSK is known for its consistent performance, strong team spirit, and a massive, passionate fan base often referred to as the "Yellow Army." Our motto, "Whistle Podu!", encapsulates the excitement and unwavering support of our fans.
+                    </p>
+                    <p>
+                        We strive for excellence on the field and embody sportsmanship, making us one of the most respected and successful teams in IPL history. Join us in celebrating every victory and cheering for our Super Kings!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Match Schedule Section -->
+        <section id="schedule" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-title">Match Schedule</h2>
+                <div class="max-w-5xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Upcoming Match Card 1 -->
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200 p-6 flex flex-col items-center">
+                        <i class="far fa-clock text-4xl text-csk-blue mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">CSK vs MI</h3>
+                        <p class="text-lg text-gray-700 mb-1">Date: October 10, 2025</p>
+                        <p class="text-md text-gray-600 mb-1">Time: 7:30 PM IST</p>
+                        <p class="text-md text-gray-600 mb-4">Venue: Wankhede Stadium, Mumbai</p>
+                        <span class="bg-csk-yellow text-csk-blue px-4 py-1 rounded-full text-sm font-semibold">Upcoming</span>
+                    </div>
+
+                    <!-- Upcoming Match Card 2 -->
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200 p-6 flex flex-col items-center">
+                        <i class="far fa-clock text-4xl text-csk-blue mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">CSK vs RCB</h3>
+                        <p class="text-lg text-gray-700 mb-1">Date: October 15, 2025</p>
+                        <p class="text-md text-gray-600 mb-1">Time: 7:30 PM IST</p>
+                        <p class="text-md text-gray-600 mb-4">Venue: M. A. Chidambaram Stadium, Chennai</p>
+                        <span class="bg-csk-yellow text-csk-blue px-4 py-1 rounded-full text-sm font-semibold">Home Match</span>
+                    </div>
+
+                    <!-- Upcoming Match Card 3 -->
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200 p-6 flex flex-col items-center">
+                        <i class="far fa-clock text-4xl text-csk-blue mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">CSK vs KKR</h3>
+                        <p class="text-lg text-gray-700 mb-1">Date: October 20, 2025</p>
+                        <p class="text-md text-gray-600 mb-1">Time: 3:30 PM IST</p>
+                        <p class="text-md text-gray-600 mb-4">Venue: Eden Gardens, Kolkata</p>
+                        <span class="bg-csk-yellow text-csk-blue px-4 py-1 rounded-full text-sm font-semibold">Away Match</span>
+                    </div>
+
+                </div>
+                <button class="btn-primary mt-12">
+                    <i class="fas fa-list-alt mr-2"></i> View Full Schedule
+                </button>
+            </div>
+        </section>
+
+        <!-- Player Profiles Section -->
+        <section id="players" class="py-16 md:py-24 csk-blue text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-title text-white after:bg-csk-yellow">Meet the Squad</h2>
+                <div class="max-w-6xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+                    <!-- Player Card 1: MS Dhoni -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 border-csk-yellow transform hover:-translate-y-2">
+                        <img src="https://placehold.co/400x400/FFDA2B/0F538C?text=MS+Dhoni" alt="MS Dhoni" class="w-full h-56 object-cover object-top" onerror="this.onerror=null; this.src='https://placehold.co/400x400/FFDA2B/0F538C?text=Player';">
+                        <div class="p-6 text-csk-blue">
+                            <h3 class="text-2xl font-bold mb-1">MS Dhoni</h3>
+                            <p class="text-lg font-medium">Captain & Wicketkeeper</p>
+                            <span class="inline-block bg-csk-blue text-csk-yellow text-xs font-semibold px-2.5 py-0.5 rounded-full mt-2">Legend</span>
+                            <a href="#" class="block text-sm mt-3 hover:underline">View Profile <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Player Card 2: Ravindra Jadeja -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 border-csk-yellow transform hover:-translate-y-2">
+                        <img src="https://placehold.co/400x400/FFDA2B/0F538C?text=R+Jadeja" alt="Ravindra Jadeja" class="w-full h-56 object-cover object-top" onerror="this.onerror=null; this.src='https://placehold.co/400x400/FFDA2B/0F538C?text=Player';">
+                        <div class="p-6 text-csk-blue">
+                            <h3 class="text-2xl font-bold mb-1">Ravindra Jadeja</h3>
+                            <p class="text-lg font-medium">All-Rounder</p>
+                            <span class="inline-block bg-csk-blue text-csk-yellow text-xs font-semibold px-2.5 py-0.5 rounded-full mt-2">Sir Jadeja</span>
+                            <a href="#" class="block text-sm mt-3 hover:underline">View Profile <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Player Card 3: Ruturaj Gaikwad -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 border-csk-yellow transform hover:-translate-y-2">
+                        <img src="https://placehold.co/400x400/FFDA2B/0F538C?text=R+Gaikwad" alt="Ruturaj Gaikwad" class="w-full h-56 object-cover object-top" onerror="this.onerror=null; this.src='https://placehold.co/400x400/FFDA2B/0F538C?text=Player';">
+                        <div class="p-6 text-csk-blue">
+                            <h3 class="text-2xl font-bold mb-1">Ruturaj Gaikwad</h3>
+                            <p class="text-lg font-medium">Opening Batsman</p>
+                            <span class="inline-block bg-csk-blue text-csk-yellow text-xs font-semibold px-2.5 py-0.5 rounded-full mt-2">Emerging Star</span>
+                            <a href="#" class="block text-sm mt-3 hover:underline">View Profile <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Player Card 4: Shivam Dube -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 border-csk-yellow transform hover:-translate-y-2">
+                        <img src="https://placehold.co/400x400/FFDA2B/0F538C?text=S+Dube" alt="Shivam Dube" class="w-full h-56 object-cover object-top" onerror="this.onerror=null; this.src='https://placehold.co/400x400/FFDA2B/0F538C?text=Player';">
+                        <div class="p-6 text-csk-blue">
+                            <h3 class="text-2xl font-bold mb-1">Shivam Dube</h3>
+                            <p class="text-lg font-medium">All-Rounder</p>
+                            <span class="inline-block bg-csk-blue text-csk-yellow text-xs font-semibold px-2.5 py-0.5 rounded-full mt-2">Power Hitter</span>
+                            <a href="#" class="block text-sm mt-3 hover:underline">View Profile <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="btn-primary mt-12">
+                    <i class="fas fa-user-friends mr-2"></i> View All Players
+                </button>
+            </div>
+        </section>
+
+        <!-- Team Statistics Section -->
+        <section id="stats" class="py-16 md:py-24 bg-gray-50 text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">Team Statistics</h2>
+                <div class="max-w-4xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <!-- Stat Card 1: IPL Titles -->
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-csk-blue hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-csk-blue text-5xl font-extrabold mb-2">5</div>
+                        <p class="text-xl font-semibold text-gray-800">IPL Titles Won</p>
+                    </div>
+
+                    <!-- Stat Card 2: CLT20 Titles -->
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-csk-blue hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-csk-blue text-5xl font-extrabold mb-2">2</div>
+                        <p class="text-xl font-semibold text-gray-800">CLT20 Titles Won</p>
+                    </div>
+
+                    <!-- Stat Card 3: Playoff Appearances -->
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-csk-blue hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-csk-blue text-5xl font-extrabold mb-2">12+</div>
+                        <p class="text-xl font-semibold text-gray-800">Playoff Appearances</p>
+                    </div>
+
+                    <!-- Stat Card 4: Win Percentage (Example) -->
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-csk-blue hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-csk-blue text-5xl font-extrabold mb-2">60%</div>
+                        <p class="text-xl font-semibold text-gray-800">Overall Win Rate</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News Section -->
+        <section id="news" class="py-16 md:py-24 bg-white text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">Latest News & Updates</h2>
+                <div class="max-w-5xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- News Article 1 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200">
+                        <img src="https://placehold.co/600x350/FFDA2B/0F538C?text=CSK+News+1" alt="News Headline 1" class="w-full h-48 object-cover object-center" onerror="this.onerror=null; this.src='https://placehold.co/600x350/FFDA2B/0F538C?text=News+Image';">
+                        <div class="p-6 text-left">
+                            <span class="bg-csk-yellow text-csk-blue text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3 inline-block">Team Update</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Dhoni hints at another season: 'Definitely not finished yet'</h3>
+                            <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+                                Speculation grows as MS Dhoni gives a cryptic hint about his future with CSK, exciting fans worldwide. Read more about the captain's latest comments.
+                            </p>
+                            <a href="#" class="text-csk-blue hover:underline font-semibold inline-flex items-center group">
+                                Read More
+                                <i class="fas fa-arrow-right text-sm ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- News Article 2 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200">
+                        <img src="https://placehold.co/600x350/0F538C/FFDA2B?text=CSK+News+2" alt="News Headline 2" class="w-full h-48 object-cover object-center" onerror="this.onerror=null; this.src='https://placehold.co/600x350/0F538C/FFDA2B?text=News+Image';">
+                        <div class="p-6 text-left">
+                            <span class="bg-csk-blue text-csk-yellow text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3 inline-block">Match Analysis</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Ruturaj Gaikwad's stellar performance in practice match</h3>
+                            <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+                                The young opener showcased his form with a blistering century in the recent intra-squad practice game, building excitement for the upcoming season.
+                            </p>
+                            <a href="#" class="text-csk-blue hover:underline font-semibold inline-flex items-center group">
+                                Read More
+                                <i class="fas fa-arrow-right text-sm ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="btn-secondary mt-12">
+                    <i class="fas fa-newspaper mr-2"></i> View All News
+                </button>
+            </div>
+        </section>
+
+        <!-- Fan Zone Section -->
+        <section id="fan-zone" class="py-16 md:py-24 csk-yellow text-csk-blue text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-csk-blue after:bg-csk-blue">Join the Yellow Army!</h2>
+                <p class="max-w-3xl mx-auto mt-12 text-xl md:text-2xl leading-relaxed mb-10">
+                    Connect with fellow CSK fans, participate in polls, discuss matches, and stay updated with exclusive content!
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#" class="bg-white text-csk-blue px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 transform focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50">
+                        <i class="fas fa-comments mr-2"></i> Fan Forum
+                    </a>
+                    <a href="#" class="bg-white text-csk-blue px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 transform focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50">
+                        <i class="fas fa-poll mr-2"></i> Take a Poll
+                    </a>
+                    <a href="#" class="bg-white text-csk-blue px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 transform focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50">
+                        <i class="fab fa-facebook-f mr-2"></i> Follow us on Facebook
+                    </a>
+                    <a href="#" class="bg-white text-csk-blue px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 transform focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50">
+                        <i class="fab fa-twitter mr-2"></i> Tweet with us
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="max-w-xl mx-auto mt-12 text-lg text-gray-700 leading-relaxed mb-10">
+                    Have questions or feedback? Reach out to us and we'll get back to you!
+                </p>
+                <form class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-left text-gray-700 text-sm font-bold mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-csk-yellow focus:border-transparent transition-all duration-200" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-left text-gray-700 text-sm font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-csk-yellow focus:border-transparent transition-all duration-200" placeholder="your@email.com">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block text-left text-gray-700 text-sm font-bold mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-csk-yellow focus:border-transparent transition-all duration-200" placeholder="Subject of your message">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-left text-gray-700 text-sm font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-csk-yellow focus:border-transparent transition-all duration-200" placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane mr-2"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-csk-blue text-white py-8 mt-12 rounded-t-3xl shadow-lg">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; <span id="current-year"></span> Chennai Super Kings Fan Zone. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4 text-2xl">
+                <a href="#" class="text-csk-yellow hover:text-white transition-colors duration-300 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow rounded-md p-1"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-csk-yellow hover:text-white transition-colors duration-300 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow rounded-md p-1"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-csk-yellow hover:text-white transition-colors duration-300 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow rounded-md p-1"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-csk-yellow hover:text-white transition-colors duration-300 focus-visible:outline-none focus:ring-2 focus:ring-csk-yellow rounded-md p-1"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Offset for fixed header
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - headerOffset - 20; // Added extra padding
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+
+                    // Close mobile menu after clicking a link
+                    if (mobileMenu.classList.contains('flex')) {
+                        mobileMenu.classList.remove('flex');
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Mobile navigation toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex'); // Use flex to show it as a column
+        });
+
+        // Close mobile menu when clicking outside (optional, but good UX)
+        document.addEventListener('click', function(event) {
+            const isClickInsideMobileMenu = mobileMenu.contains(event.target);
+            const isClickOnMobileMenuButton = mobileMenuButton.contains(event.target);
+
+            if (!isClickInsideMobileMenu && !isClickOnMobileMenuButton && mobileMenu.classList.contains('flex')) {
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
